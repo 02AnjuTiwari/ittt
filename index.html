@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GlowCare Skincare</title>
+
+<style>
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background: linear-gradient(120deg, #ffe6f0, #e6f7ff);
+  color: #333;
+}
+
+header {
+  text-align: center;
+  padding: 30px;
+  background: linear-gradient(90deg, #ff99cc, #99ccff);
+  color: white;
+}
+
+h1 {
+  margin: 0;
+}
+
+.filter-buttons {
+  text-align: center;
+  margin: 20px;
+}
+
+.filter-buttons button {
+  margin: 5px;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 20px;
+  background: #ff99cc;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.filter-buttons button:hover {
+  background: #ff66b2;
+}
+
+.products {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+.card {
+  background: white;
+  border-radius: 15px;
+  padding: 15px;
+  text-align: center;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  transition: transform 0.3s;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+.card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.tag {
+  display: inline-block;
+  margin: 5px;
+  padding: 5px 10px;
+  border-radius: 15px;
+  background: #e6f7ff;
+  font-size: 12px;
+}
+
+footer {
+  text-align: center;
+  padding: 15px;
+  background: #ff99cc;
+  color: white;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>✨ GlowCare Skincare ✨</h1>
+  <p>Healthy Skin Starts Here</p>
+</header>
+
+<div class="filter-buttons">
+  <button onclick="filterProducts('all')">All</button>
+  <button onclick="filterProducts('acne')">Acne</button>
+  <button onclick="filterProducts('dry')">Dry Skin</button>
+  <button onclick="filterProducts('oily')">Oily Skin</button>
+  <button onclick="filterProducts('sensitive')">Sensitive</button>
+  <button onclick="filterProducts('aging')">Anti-aging</button>
+</div>
+
+<section class="products">
+
+  <div class="card" data-category="acne oily">
+    <img src="https://images.unsplash.com/photo-1608248597279-f99d160bfcbc" alt="Facewash">
+    <h3>Tea Tree Facewash</h3>
+    <p>Deep cleans pores and controls oil.</p>
+    <span class="tag">Acne</span>
+    <span class="tag">Oily</span>
+  </div>
+
+  <div class="card" data-category="sensitive dry">
+    <img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be" alt="Toner">
+    <h3>Hydrating Toner</h3>
+    <p>Soothes and refreshes sensitive skin.</p>
+    <span class="tag">Sensitive</span>
+    <span class="tag">Dry</span>
+  </div>
+
+  <div class="card" data-category="aging dry">
+    <img src="https://images.unsplash.com/photo-1629198688000-71f23e745b6e" alt="Serum">
+    <h3>Vitamin C Serum</h3>
+    <p>Brightens skin and reduces fine lines.</p>
+    <span class="tag">Anti-aging</span>
+    <span class="tag">Dry</span>
+  </div>
+
+  <div class="card" data-category="dry sensitive">
+    <img src="https://images.unsplash.com/photo-1611930022073-b7a4ba5fcccd" alt="Moisturizer">
+    <h3>Ultra Moisturizer</h3>
+    <p>Locks hydration for soft glowing skin.</p>
+    <span class="tag">Dry</span>
+    <span class="tag">Sensitive</span>
+  </div>
+
+  <div class="card" data-category="oily sensitive">
+    <img src="https://images.unsplash.com/photo-1596755094514-f87e34085b2c" alt="Sunscreen">
+    <h3>SPF 50 Sunscreen</h3>
+    <p>Lightweight sun protection, no white cast.</p>
+    <span class="tag">Oily</span>
+    <span class="tag">Sensitive</span>
+  </div>
+
+</section>
+
+<footer>
+  <p>© 2026 GlowCare Skincare | Love Your Skin 💖</p>
+</footer>
+
+<script>
+function filterProducts(category) {
+  let cards = document.querySelectorAll(".card");
+
+  cards.forEach(card => {
+    if (category === "all") {
+      card.style.display = "block";
+    } else {
+      if (card.getAttribute("data-category").includes(category)) {
+        card.style.display = "block";
+      } else {
+        card.style.display = "none";
+      }
+    }
+  });
+}
+</script>
+
+</body>
+</html>
